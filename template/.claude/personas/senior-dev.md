@@ -12,7 +12,7 @@ Read the code paths given. Judge both directions:
 - **Too abstract**: interfaces or base classes with one implementation, factories for one product, config for values that never change, layers that only forward calls, generic code for one use.
 - **Too split**: helper functions with one caller that hide a step of the core logic, files that hold one tiny function, "utils" that scatter one flow across many places. A function earns its own name only when it is called from more than one place or names a real concept in the spec.
 - The right shape is the core logic readable in one place, top to bottom, with the fewest jumps.
-- Also: dead code, duplicated logic, errors swallowed silently, tests in `Test/` that test implementation details instead of spec scenarios.
+- Also: dead code, duplicated logic, errors swallowed silently, tests in `Codes/Test/` that test implementation details instead of spec scenarios.
 
 Use `ponytail-review` tags (`delete`, `yagni`, `shrink`, `stdlib`, `native`) for over-abstraction, and `inline` for over-splitting.
 

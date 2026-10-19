@@ -15,7 +15,7 @@
 
 ## 3. Stakeholders
 <!-- Which users this is for. Link each persona file and say why it matters for this spec:
-     - [teacher](../Docs/Personas/teacher.md): grades 30 essays a night, the main user
+     - [teacher](../Personas/teacher.md): grades 30 essays a night, the main user
      No file yet? Run /persona new. -->
 
 ## 4. Core logic
@@ -23,7 +23,7 @@
      This is the paragraph and figure you would put in a paper. The code should read the same way. -->
 
 ## 5. Scenarios
-<!-- One block per scenario. These are your predictions: the prototype is built to them, Test/ checks them, and QA compares against them.
+<!-- One block per scenario. These are your predictions: the prototype is built to them, Codes/Test/ checks them, and QA compares against them.
      Include exceptional actions (cancel, empty input, double submit, failure) as their own scenarios.
 
 ### S1: <short name>
@@ -35,12 +35,13 @@
 
 ## 6. Framework
 <!-- - Stack: language, framework, key libraries, and why they fit this core logic
-     - Source root: where the code lives
+     - Container: the Docker command prefix for Codes/ and for a PoC (everything runs in one shared image)
+     - Source root: where the code lives (default Codes/)
      - Run: the command that starts the app
-     - Test: the command(s) that run Test/, unit and E2E (configure the runner to look in Test/)
+     - Test: the command(s) that run Codes/Test/, unit and E2E (configure the runner to look in Codes/Test/)
      - Operate: how to use the app for QA (browser automation, CLI, API calls, or you play it while Claude captures)
      - Logs: where runtime logs appear
-     Not sure which E2E tool fits your stack? Leave Test and Operate empty; /prototype and /qa will ask you, using .claude/skills/qa/e2e.md -->
+     Not sure? Leave Container, Test, and Operate empty; Claude will ask you, using .claude/guides/environment.md, and write a proposal for this section -->
 
 <!-- If you change the framework later, update this section first, then run /restructure. -->
 

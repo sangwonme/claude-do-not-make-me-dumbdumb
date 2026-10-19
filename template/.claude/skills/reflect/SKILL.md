@@ -11,17 +11,17 @@ Request: $ARGUMENTS
 
 **The developer draws the conclusions.** Never state whether a prediction held, what a result means, or what to do next. Record answers in the developer's words.
 
-1. **Material**: the given QA report, else the newest in `QA/`, else the last `/prototype` report in this conversation. Read it and the spec. `{title}` is the QA report's title, else the spec's.
+1. **Material**: the given QA report or `PoC/<name>`, else the newest in `Docs/QA/`, else the last `/prototype` or `/poc run` report in this conversation. Read it and the spec. For a PoC, read its `README.md` and `result.md`; its Prediction stands in for the scenarios below. `{title}` is the QA report's title, the PoC name, or the spec's.
 2. **Show the facts** in chat, no interpretation: the scenario table (the developer's Then vs. observed), failing tests, and each reviewer's verdict and top issue.
 3. **Interview** with AskUserQuestion, at most 4 questions per call, in this order. Open questions; options only as readings of what the developer already said or wrote.
    1. **Predictions**: for each in-scope scenario, did it behave as you expected? Where it did not, was your "Why I expect this" wrong, or the build?
    2. **Surprises**: what did you learn that you did not expect?
    3. **Reviewer points**: which ones do you accept, and which do you reject, and why? (Ask about the ones raised by more than one reviewer, the disagreements, and every blocker; the developer can add others.)
    4. **Contribution**: does this support, weaken, or not yet speak to the spec's contribution (§2)?
-   5. **Decision**: drop the idea, iterate on it, take it further, or change the framework, and why.
+   5. **Decision**: drop the idea, iterate on it, take it further, or change the framework; for a PoC: merge it, drop it, or run another PoC. And why.
    6. **Next**: which spec sections you will change, and the next step.
    If an answer is vague ("it's fine", "mostly"), ask again about that answer only.
 4. Write `Docs/Decisions/{date}-{title}.md` from `template.md` (next to this file), placing answers verbatim. If the file exists, append `-2`, `-3`, ...
-5. **Follow-ups, listed, never done**: spec sections the developer said they will change (they edit them, or run `/spec refine`). If the decision changes the framework or accepts a reviewer's reframe: "update §6 (framework) or §4 (if the explanation changes), then run `/restructure`".
+5. **Follow-ups, listed, never done**: spec sections the developer said they will change (they edit them, or run `/spec refine`). If the decision changes the framework or accepts a reviewer's reframe: "update §6 (framework) or §4 (if the explanation changes), then run `/restructure`". Merge or drop a PoC: "write it in the PoC's Conclusion, then run `/poc merge <name>` or `/poc drop <name>`".
 
 Report the path and the follow-up list.

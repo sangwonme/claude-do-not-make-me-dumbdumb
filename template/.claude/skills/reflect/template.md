@@ -3,8 +3,8 @@
 > **The developer's conclusions, in their words**, recorded by `/reflect`. Edit freely.
 
 - Date: {{YYYY-MM-DD}}
-- Spec: [{{spec file}}](../../Spec/{{spec file}})
-- Based on: {{QA report link, or "prototype run"}}
+- Spec: [{{spec file}}](../Spec/{{spec file}})
+- Based on: {{QA report link, PoC result link, or "prototype run"}}
 
 ## Predictions
 
@@ -24,7 +24,7 @@
 
 ## Decision
 
-**{{Drop / Iterate / Take further / Change framework}}**: {{why}}
+**{{Drop / Iterate / Take further / Change framework / Merge PoC / Another PoC}}**: {{why}}
 
 ## Next
 
