@@ -46,11 +46,35 @@ Core reviewers live in `.claude/personas/`; your stakeholder users live in `Docs
 
 The first time Claude needs a Docker image, a test tool, or an E2E tool, it asks you which one (from a per-stack guide), sets it up, and proposes the lines for your spec's Framework section.
 
-**2. Experiment on core logic first (optional)**
-1. `/poc new ranking` interviews you: what question this answers (a core-logic step or open question from your spec), what you predict and why, what to observe, and what result means merge or drop. Your answers become `PoC/ranking/README.md`.
-2. `/poc run ranking` builds the smallest experiment in that folder only and runs it in the shared Docker image. If it needs logic from `Codes/`, it uses a small stand-in returning recorded data, never an import. Facts go to `result.md`, next to your prediction.
-3. You write your Conclusion in the PoC's README (or `/reflect` on it). Try again, `/poc drop ranking`, or:
-4. `/poc merge ranking` asks which scenarios it serves, shows a map of what goes where in `Codes/` for your approval, writes the tests first, builds until they pass, and freezes the PoC as a record.
+**2. Experiment on core logic in a PoC**
+
+A PoC answers one question about your core logic that you can't settle by thinking: does this approach work, how accurate is it, how fast. It lives in its own folder with a few files, away from the main code, so you can try something risky, throw it away, or try two approaches side by side without touching `Codes/`. Use `/prototype` when you are building what the user does (your scenarios); use a PoC when you are testing how one step of the core logic works.
+
+Example: your spec's core logic has a step "group similar feedback comments", and you're not sure a simple approach is good enough.
+
+1. **Ask the question.** `/poc new clustering` interviews you, and your answers become `PoC/clustering/README.md`:
+   - *Question*: can simple clustering group comments the way a teacher would? (core logic §4, step 2)
+   - *Prediction*: 8 of 10 groups match mine, because most comments repeat the same few phrases.
+   - *Observe*: the groups for 50 sample comments, side by side with my hand-made groups.
+   - *Merge if* 8 or more match. *Drop if* fewer than 5.
+2. **Run it.** `/poc run clustering` builds the smallest experiment and runs it in the same Docker image as `Codes/`. The folder ends up like this:
+   ```
+   PoC/clustering/
+     README.md        your question, prediction, and later your conclusion. Claude never edits it
+     cluster.*        the experiment, a few files at most
+     check.*          prints or asserts exactly what "Observe" names
+     stand_in.*       same signature as load_comments() in Codes/, returns the data below
+     fixtures/        comments recorded once from the real Codes/ function
+     result.md        facts from every run: command, output, your prediction next to what happened
+   ```
+   The PoC never imports from `Codes/`. When it needs main-code logic (here, loading comments), it uses a stand-in with the same signature that returns recorded data, so the experiment stays isolated and repeatable. If the experiment needs a new library, Claude asks first and adds it to the shared `Dockerfile`, marked as belonging to this PoC.
+3. **Decide.** Read `result.md` and write your Conclusion in the PoC's README (merge, drop, or run again with what change), or `/reflect` on it. Claude reports what happened but never says whether you were right. Before merging, `/qa code PoC/clustering` can have the senior developer and the HCI researcher check whether the logic is simple and explains your contribution clearly.
+4. **Merge or drop.**
+   - `/poc merge clustering` asks which spec scenarios this logic serves, and shows a map for your approval: what goes where in `Codes/`, which stand-ins become real calls, and which libraries move into the main dependencies. It writes the tests first: scenario tests, plus a contract test for each stand-in that checks the real function still returns data like the fixture. Then it builds until they pass, without breaking any test that already passed.
+   - `/poc drop clustering` removes the libraries it added.
+   - Either way the folder stays, frozen, as a record of what you tried and what you learned. Useful when you write the paper.
+
+To compare approaches, make two PoCs (say `clustering` and `clustering-embeddings`) with their own predictions, run both, and decide from their `result.md` files.
 
 **3. Build and test a scenario**
 1. `/prototype S1 S2`. If a scenario has no expected result or no "why", Claude stops and tells you what to write.
