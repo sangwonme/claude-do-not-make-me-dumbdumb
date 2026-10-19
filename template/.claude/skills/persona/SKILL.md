@@ -17,7 +17,7 @@ List each file in `Docs/Personas/` (except `README.md`) with its one-line **Who*
 
 ## new [name]
 
-1. Name defaults to asking the developer. File: `Docs/Personas/{kebab-case name}.md`. Never overwrite an existing file; if it exists, show it and stop. Changes to an existing persona go to `proposal/` (`.claude/guides/proposal.md`), never into the file.
+1. Name defaults to asking the developer. File: `Docs/Personas/{kebab-case name}.md`. Never overwrite an existing file; if it exists, show it and stop. Changes to an existing persona go to `Proposal/` (`.claude/guides/proposal.md`), never into the file.
 2. If a spec exists, read its Pitch and Stakeholders sections so your questions fit the app. Do not answer them yourself.
 3. Interview with AskUserQuestion, at most 4 questions per call, in this order. Questions are open; options, if any, are only readings of what the developer already said, never suggested traits.
    1. **Who**: who this person is, in one line (role, not a made-up name).

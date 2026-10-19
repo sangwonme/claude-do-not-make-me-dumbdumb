@@ -8,7 +8,7 @@ Works for any kind of app. Everything runs in one Docker image.
 PoC/<name>/   your core-logic experiments, one folder each
 Codes/        the main code, with its tests in Codes/Test/
 Docs/         your docs: Spec/, Personas/, Decisions/ (and Claude's reports: Spec/review/, QA/)
-proposal/     changes Claude suggests to your docs. Claude never edits them; you apply proposals by hand
+Proposal/     changes Claude suggests to your docs. Claude never edits them; you apply proposals by hand
 ```
 
 ## Install
@@ -25,7 +25,7 @@ Install the setup from https://github.com/sangwonme/claude-do-not-make-me-dumbdu
 |---|---|
 | `/spec setup [title]` | Creates a spec template in `Docs/Spec/`. **You write the spec yourself**: contribution, core logic, Given-When-Then scenarios with your expected results, and the framework. |
 | `/persona new [name]` | Interviews you about a stakeholder user and saves your answers to `Docs/Personas/` |
-| `/spec refine` | Asks you about unclear or redundant wording, then writes a proposal from your answers in `proposal/` |
+| `/spec refine` | Asks you about unclear or redundant wording, then writes a proposal from your answers in `Proposal/` |
 | `/spec review` | A senior developer, a UX designer, an HCI researcher, and your stakeholder users review it independently → `Docs/Spec/review/` |
 | `/prototype [scenarios]` | Writes tests for your scenarios (you approve them), builds the smallest version that passes, and shows what happened next to what you expected |
 | `/poc new\|run\|merge\|drop <name>` | An isolated experiment in `PoC/<name>/`: you state the question and prediction, Claude builds and runs the smallest version and records facts, and on your decision merges it into `Codes/` test-first |
@@ -112,7 +112,7 @@ Run this when the user asks to install this setup.
 | `CLAUDE.md` | Where things live and who writes them, developer docs never edited by Claude (proposals instead), one Docker image, PoC isolation and stand-ins, ponytail always on (full in `Codes/`, ultra in `PoC/`), definition of done, which skills Claude may start |
 | `.claude/settings.json` | Asks before any write to developer docs (`Docs/Spec/*.md`, `Docs/Personas/`, `Docs/Decisions/`, `PoC/*/README.md`) and to `Dockerfile` / `compose.yaml` |
 | `Docs/Personas/README.md` | Home of the stakeholder personas, so the folder ships |
-| `PoC/README.md`, `proposal/README.md` | What each folder is for, so the folders ship |
+| `PoC/README.md`, `Proposal/README.md` | What each folder is for, so the folders ship |
 | `.claude/guides/proposal.md` | The proposal format for changes to developer docs |
 | `.claude/guides/environment.md` | Docker setup, and per-stack test, E2E, and operate tools |
 | `.claude/agents/persona-reviewer.md` | The one reviewer agent. Takes a persona file and holds the shared rules (independent, cite sources, read-only) |

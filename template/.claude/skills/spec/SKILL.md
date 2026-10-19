@@ -9,7 +9,7 @@ argument-hint: "setup [title] | review [file] | refine [file]"
 
 Arguments: $ARGUMENTS. The first word is the mode: `setup`, `review`, or `refine`. No mode → ask which one.
 
-**The developer writes the spec.** Never add ideas, content, or numbers of your own to a file in `Docs/Spec/`. `setup` creates the empty template; after that, never edit the spec. Every change goes to `proposal/` (`.claude/guides/proposal.md`), built only from the developer's answers.
+**The developer writes the spec.** Never add ideas, content, or numbers of your own to a file in `Docs/Spec/`. `setup` creates the empty template; after that, never edit the spec. Every change goes to `Proposal/` (`.claude/guides/proposal.md`), built only from the developer's answers.
 
 Spec file: the given file, else the only `.md` in `Docs/Spec/` (excluding `review/`), else ask which one. Dates are `YYYY-MM-DD` (today). `{title}` is the spec's file name without `.md`. If the output file already exists, append `-2`, `-3`, ... Write reports in the spec's language.
 
@@ -43,5 +43,5 @@ This is about wording only. Reviewers' "Questions for the author" ask for new co
    - **contradiction**: two statements that cannot both be true (including a scenario that contradicts the core logic)
    - Empty sections, and scenarios missing "Why I expect this": list them in the final message. Do not ask the user to fill them here.
 3. Ask with AskUserQuestion, at most 4 questions per call, most important first. Quote the text with its section or scenario. Options are possible readings of what the developer wrote (for redundant: keep A / keep B / merge), never new ideas. The developer can always answer in their own words.
-4. Write `proposal/{date}-{title}-refine.md` (`.claude/guides/proposal.md`): one change per answered question, current text quoted exactly, proposed text built only from the answer in the developer's words and tone. Do not edit the spec.
+4. Write `Proposal/{date}-{title}-refine.md` (`.claude/guides/proposal.md`): one change per answered question, current text quoted exactly, proposed text built only from the answer in the developer's words and tone. Do not edit the spec.
 5. Report the proposal path and one line per change: `§n: "before" → "after"`. Then list empty sections, if any. The developer applies the changes by hand.

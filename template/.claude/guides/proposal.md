@@ -1,6 +1,6 @@
 # Proposal format
 
-Claude never edits a developer doc (see `CLAUDE.md`). Every change it would make is written here instead, one file per target doc and topic: `proposal/{YYYY-MM-DD}-{doc name}-{topic}.md`. If it exists, append `-2`, `-3`, ...
+Claude never edits a developer doc (see `CLAUDE.md`). Every change it would make is written here instead, one file per target doc and topic: `Proposal/{YYYY-MM-DD}-{doc name}-{topic}.md`. If it exists, append `-2`, `-3`, ...
 
 ```markdown
 # Proposal: {topic}

@@ -16,7 +16,7 @@ Framework, container, run command, test command, and how to operate the app live
 | `Docs/Personas/*.md` | The developer | Developer doc. Stakeholder users. Reviewers read them here directly; never copy them elsewhere. |
 | `Docs/Decisions/*.md` | The developer | Developer doc. What a run meant and what happens next. |
 | `PoC/*/README.md` | The developer | Developer doc. One experiment's question, prediction, and conclusion. |
-| `proposal/` | Claude | Every change Claude suggests to a developer doc. See below. |
+| `Proposal/` | Claude | Every change Claude suggests to a developer doc. See below. |
 | `Docs/Spec/review/`, `Docs/QA/` | `/spec review`, `/qa` | Reports and evidence. Never edit past ones. Write them in the spec's language (no spec: the user's language). |
 | `PoC/*/` (except `README.md`) | Claude (`/poc`) | Experiment code, its checks, `fixtures/`, and `result.md` (facts per run, append only). |
 | `Codes/` | Claude | Main code, laid out as §6 says. No deeper structure until it hurts. |
@@ -30,7 +30,7 @@ Framework, container, run command, test command, and how to operate the app live
 
 Developer docs are `Docs/Spec/*.md`, `Docs/Personas/*.md`, `Docs/Decisions/*.md`, and `PoC/*/README.md`.
 
-- **Never edit an existing developer doc**, not even a typo or a link, and not even when a skill's step produces the change. Write it as a proposal instead: `proposal/{date}-{doc name}-{topic}.md` from `.claude/guides/proposal.md`. The developer applies it by hand. Do not apply proposals yourself.
+- **Never edit an existing developer doc**, not even a typo or a link, and not even when a skill's step produces the change. Write it as a proposal instead: `Proposal/{date}-{doc name}-{topic}.md` from `.claude/guides/proposal.md`. The developer applies it by hand. Do not apply proposals yourself.
 - You may **create** a developer doc only by copying an empty template (`/spec setup`, `/poc new`) or by recording the developer's interview answers verbatim (`/persona new`, `/poc new`, `/reflect`).
 - Never fill in a prediction, scenario, success criterion, persona, or conclusion for the developer. If one is missing, name the section and stop.
 - When asking, offer readings of what the developer already wrote, never new ideas. The developer can always answer in their own words.
